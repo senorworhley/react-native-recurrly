@@ -1,4 +1,8 @@
-import { formatCurrency, formatStatusLabel, formatSubscriptionDateTime } from "@/lib/utils";
+import {
+  formatCurrency,
+  formatStatusLabel,
+  formatSubscriptionDateTime,
+} from "@/lib/utils";
 import clsx from "clsx";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
@@ -17,7 +21,7 @@ const SubscriptionCard = ({
   onPress,
   paymentMethod,
   startDate,
-  status
+  status,
 }: SubscriptionCardProps) => {
   return (
     <Pressable
@@ -57,7 +61,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {paymentMethod?.trim()}
+                  {paymentMethod?.trim() ?? "Not provided"}
                 </Text>
               </View>
             </View>
@@ -69,7 +73,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {category?.trim() || plan?.trim()}
+                  {(category?.trim() || plan?.trim()) ?? "Not provided"}
                 </Text>
               </View>
             </View>
@@ -105,7 +109,7 @@ const SubscriptionCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {status ? formatStatusLabel(status) : "" }
+                  {status ? formatStatusLabel(status) : ""}
                 </Text>
               </View>
             </View>
